@@ -29,3 +29,82 @@ function makeMove(row, col) {
         }
     }
 }
+
+// Função para verificar se o jogo acabou
+function isGameOver() {
+    // Verifica se há uma linha, coluna ou diagonal com três símbolos iguais
+    for (let i = 0; i < 3; i++) {
+        if (
+            board[i][0] !== '' &&
+            board[i][0] === board[i][1] &&
+            board[i][1] === board[i][2]
+        ) {
+        return true;
+        }
+      
+        if (
+            board[0][i] !== '' &&
+            board[0][i] === board[1][i] &&
+            board[1][i] === board[2][i]
+        ) {
+        return true;
+        }
+    }
+    
+    if (
+      board[0][0] !== '' &&
+      board[0][0] === board[1][1] &&
+      board[1][1] === board[2][2]
+    ) {
+      return true;
+    }
+    
+    if (
+      board[0][2] !== '' &&
+      board[0][2] === board[1][1] &&
+      board[1][1] === board[2][0]
+    ) {
+      return true;
+    }
+    
+    // Verifica se todas as células foram preenchidas sem haver um vencedor
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        if (board[row][col] === '') {
+          return false;
+        }
+      }
+    }
+    
+    return true;
+}
+  
+// Função para reiniciar o jogo
+function resetGame() {
+    // Limpa o tabuleiro
+    board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ];
+    
+    // Limpa o texto das células no HTML
+    let buttons = document.getElementsByClassName('casas');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].textContent = '';
+    }
+    
+    // Define o jogador inicial como 'X'
+    currentPlayer = 'X';
+}
+  
+// Adiciona o evento de clique a cada célula do tabuleiro
+let buttons = document.getElementsByClassName('casas');
+for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+    let row = Math.floor(i / 3);
+    let col = i % 3;
+    button.addEventListener('click', function() {
+      makeMove(row, col);
+    });
+}
