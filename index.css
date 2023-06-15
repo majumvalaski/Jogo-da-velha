@@ -2,3 +2,27 @@
     padding:0;
     margin:0;
 }
+
+.container{
+    text-align: center;
+    font-size: 20px;
+    padding:10px;
+}
+
+table{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.casas {
+    height: 150px;
+    width: 150px;
+    margin:5px;
+    border-radius: 5px;
+    font-size: 50px;
+}
+.casas:hover{
+    background-color: rgba(243, 143, 107, 0.824);
+}
