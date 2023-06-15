@@ -18,7 +18,10 @@ function makeMove(row, col) {
     // Atualiza o texto da célula no HTML
         let button = document.getElementById('cell-' + row + '-' + col);
         button.textContent = currentPlayer;
-      
+
+    // Adiciona a classe CSS para colorir a célula
+        button.classList.add('casa-selecionada'); 
+         
     // Verifica se o jogo acabou após a jogada
         if (isGameOver()) {
             alert('Fim de jogo! O jogador ' + currentPlayer + ' venceu!');

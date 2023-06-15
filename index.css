@@ -26,3 +26,6 @@ table{
 .casas:hover{
     background-color: rgba(243, 143, 107, 0.824);
 }
+.casa-selecionada{
+    background-color: rgba(243, 143, 107, 0.824);
+}
