@@ -75,7 +75,7 @@ function isGameOver() {
         }
       }
     }
-    
+    alert('Fim de jogo! Empate');
     return true;
 }
   
